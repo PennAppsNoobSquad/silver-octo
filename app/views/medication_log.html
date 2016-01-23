@@ -1,0 +1,15 @@
+<section flex layout="column">
+
+  <div layout="row" layout-padding layout-margin>
+    <md-list flex class="activity-log">
+      <md-list-item class="md-whiteframe-1dp" ng-repeat="item in activityLog" ng-click="">
+        <md-icon class="md-avatar-icon">label_outline</md-icon>
+        <h3 class="md-headline">{{item.name}}</h3>
+        <span flex></span>
+        <p class="md-subhead md-secondary">{{item.time}}</p>
+        <!-- <md-icon md-svg-icon="communication:messenger" ng-click="doSecondaryAction($event)" aria-label="Open Chat" class="md-secondary md-hue-3" ng-class="{'md-primary': person.newMessage}"></md-icon> -->
+      </md-list-item>
+    </md-list>
+  </div>
+
+</section>
