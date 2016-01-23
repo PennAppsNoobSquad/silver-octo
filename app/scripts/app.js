@@ -27,8 +27,11 @@ angular.module('silverOctoTestApp', [
     };
 
     $mdThemingProvider.theme('default')
-      .primaryPalette('grey', {
-      })
-      .accentPalette('light-blue');
+      .primaryPalette('light-blue')
+      .accentPalette('yellow');
 
+    $mdThemingProvider.theme('toolbar')
+      .primaryPalette('grey')
+      .accentPalette('light-blue');
+      
   });
