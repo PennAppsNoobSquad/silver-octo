@@ -14,7 +14,7 @@
     </div>
 
     <div layout="column">
-      <h4 class="md-headline">Is there something else you like to call it?</h4>
+      <h4 class="md-headline">Is there a nickname for the medication?</h4>
       <md-input-container flex class="hide-error-spacer">
         <label>Nickname</label>
         <input type="text" ng-model="medication.nickname">
@@ -22,7 +22,7 @@
     </div>
 
     <div flex layout="column">
-      <h4 class="md-headline">What does your medicine look like?</h4>
+      <h4 class="md-headline">What does the medicine look like?</h4>
 
       <div layout="row">
         <md-input-container flex>
@@ -45,7 +45,7 @@
     </div>
 
     <div layout="column">
-      <h4 class="md-headline">When do you take this medicine?</h4>
+      <h4 class="md-headline">How often is the medication taken?</h4>
 
       <div layout="row" layout-align="space-between start">
         <div ng-repeat="day in daysOfWeek">
@@ -54,8 +54,12 @@
           </md-checkbox>
         </div>
       </div>
-
     </div>
 
+    <div layout="column">
+      <h4 class="md-headline">When is the medication taken?</h4>
+
+      <input type="number" ng-model="newTime">
+    </div>
 
 </section>

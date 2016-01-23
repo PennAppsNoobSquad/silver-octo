@@ -5,10 +5,9 @@
  * @name silverOctoTestApp.directive:searchToolbar
  * @description
  * # searchToolbar
- * Allows for voice navigation within the app
  */
 angular.module('silverOctoTestApp')
-  .directive('searchToolbar', function ($log, Auth, Ref, $firebaseObject) {
+  .directive('searchToolbar', function ($log, houndify, Auth, Ref, $firebaseObject) {
     return {
       templateUrl: 'views/search_toolbar.html',
       restrict: 'E',
@@ -16,7 +15,14 @@ angular.module('silverOctoTestApp')
         Auth.$requireAuth().then(function (user) {
           scope.user = $firebaseObject(Ref.child('users/'+user.uid));
         });
-      },
-      controller: "SearchToolbarCtrl"
+
+        scope.toggleVoiceSearch = function toggleVoiceSearch() {
+          scope.voiceSearchInProgress = houndify.toggleVoiceSearch();
+        };
+
+        scope.searchText = function searchText(search) {
+          houndify.search(search);
+        };
+      }
     };
   });

@@ -1,20 +1,22 @@
-<section layout-padding>
+<section flex layout="row" layout-padding>
 
-  <md-tabs md-dynamic-height md-border-bottom>
-    <md-tab label="upcoming medications">
-      123
-    </md-tab>
+  <div flex="15" layout="column" layout-padding>
 
-    <md-tab label="all medications">
-      123
-    </md-tab>
+    <div class="sidebar-card md-whiteframe-1dp" layout-padding ng-repeat="prescription in prescriptions">
+      <h4 class="md-title">{{prescription.name}}</h4>
+      <p class="md-subhead">{{prescription.frequency}}</p>
+    </div>
 
-  </md-tabs>
-
-<!--   <div flex layout="row">
-    <h1 class="md-headline">Upcoming Medications</h1>
-    <span flex="5"></span>
-    <h1 class="md-headline">All Medications</h1>
   </div>
- -->
+
+  <span flex="5"></span>
+
+  <div flex layout-fill layout-padding>
+
+    <div flex layout-fill>
+    <h4>Feed</h4>
+    </div>
+
+  </div>
+
 </section>
