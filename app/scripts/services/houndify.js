@@ -22,6 +22,7 @@ angular.module('silverOctoTestApp')
 
     //REQUEST INFO JSON
     var requestInfo = {
+
        PartialTranscriptsDesired: true,
        ClientID: clientID
     };
@@ -34,12 +35,12 @@ angular.module('silverOctoTestApp')
 
       // provide client information here if connection is secure
       // to skip the authentication on server side
-      // client: {
-      //   clientId: "CLIENT_ID",
-      //   clientKey: "CLIENT_KEY"
-      // },
+      client: {
+        clientId: "ZT1j1QT7Q7sC93SauHS2vA==",
+        clientKey: "bkzCrOwxtF7VqG8UnT6hUH3hSmQuar8PEpASRSCrDcDg5jhLi331XN4A6JlSv7PGiImf15B0V69eBgkXwqM8bA=="
+      },
 
-      authenticationURI: baseURL + "/voiceSearchAuth",
+      // authenticationURI: baseURL + "/voiceSearchAuth",
 
       conversation: myConversation,
 
@@ -55,6 +56,7 @@ angular.module('silverOctoTestApp')
           $log.debug("voiceSearch response:", response, info);
           data.response = response;
           data.info = info;
+          // Maybe fire event here.
           // jsonElet.value = JSON.stringify(response, undefined, 2);
           // infoElet.value = JSON.stringify(info, undefined, 2);
         }
@@ -118,9 +120,9 @@ angular.module('silverOctoTestApp')
     //INITIALIZE TEXT SEARCH OBJECT
     var textSearch = new Hound.TextSearch({
 
-      proxy: {
-        route: baseURL + "/textSearchProxy",
-        method: "GET"
+      client: {
+        clientId: "ZT1j1QT7Q7sC93SauHS2vA==",
+        clientKey: "bkzCrOwxtF7VqG8UnT6hUH3hSmQuar8PEpASRSCrDcDg5jhLi331XN4A6JlSv7PGiImf15B0V69eBgkXwqM8bA=="
       },
 
       conversation: myConversation,
