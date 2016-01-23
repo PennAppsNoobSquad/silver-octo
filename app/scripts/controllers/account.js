@@ -7,14 +7,23 @@
  * Provides rudimentary account management functions.
  */
 angular.module('silverOctoTestApp')
-  .controller('AccountCtrl', function ($scope, user, Auth, Ref, $firebaseObject, $timeout) {
+  .controller('AccountCtrl', function ($scope, user, Auth, Ref, $firebaseObject, $timeout, $log) {
     $scope.user = user;
     $scope.logout = function() { Auth.$unauth(); };
     $scope.messages = [];
-    var profile = $firebaseObject(Ref.child('users/'+user.uid));
-    profile.$bindTo($scope, 'profile');
-    
 
+    var validateProfileData = function validateProfileData() {
+      if (!profile.email) {
+        profile.email = user[user.provider].email;
+        profile.image = user[user.provider].profileImageURL;
+        profile.$save();
+        $log.debug("Update user's email and profle image in profile.", profile.email);
+      }
+    };
+
+    var profile = $firebaseObject(Ref.child('users/'+user.uid));
+    profile.$bindTo($scope, 'profile').then(validateProfileData);
+    
     $scope.changePassword = function(oldPass, newPass, confirm) {
       $scope.err = null;
       if( !oldPass || !newPass ) {
