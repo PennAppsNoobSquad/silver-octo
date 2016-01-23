@@ -13,29 +13,13 @@
       </div>
     </div>
 
-    <div class="ui field" hidden>
-      <label>Response object</label>
-      <textarea id="responseJSON"></textarea>
-    </div>
-    <div class="ui field" hidden>
-      <label>Search info object</label>
-      <textarea id="infoJSON"></textarea>
-    </div>
+    <span flex></span>
 
-<!--     <md-button class="md-icon-button" ng-click="toggleVoiceSearch()">
-      <md-icon class="md-48">mic</md-icon>
+    <md-button ng-href="#/account" ng-show="user">
+      <span class="md-subhead">Account</span>
     </md-button>
-    <md-input-container md-no-float class="md-accent md-hue-1 hide-error-spacer">
-      <input name="search" 
-             ng-model="search" 
-             placeholder="Say or type something!">
-    </md-input-container>
-    <md-button class="md-icon-button" ng-click="textSearch(search)">
-      <md-icon class="md-48">search</md-icon>
-    </md-button>
- -->    
- <span flex></span>
-    <md-button ng-href="#/login">
+    
+    <md-button ng-href="#/login" ng-hide="user">
       <span class="md-subhead">Login</span>
     </md-button>
   </div>
