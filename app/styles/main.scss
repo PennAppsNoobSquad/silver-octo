@@ -146,13 +146,13 @@ md-toolbar.md-toolbar-theme.md-hue-3:not(.md-menu-toolbar).md-accent {
 }
 
 .empty-state {
-  opacity: 0.6;
+  opacity: 0.45;
   .empty-state-image {
     width: 400px;
     height: auto;
     margin-right: auto;
     margin-left: auto;
   }
-  width: 100%;
+  // width: 100%;
   text-align: center;
 }

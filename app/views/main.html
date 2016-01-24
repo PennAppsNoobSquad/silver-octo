@@ -11,12 +11,15 @@
       </div>
 
       <md-list>
-        <md-list-item ng-repeat="event in feed">
+        <md-list-item ng-repeat="event in feed | reverse:true">
           <div flex layout="row" layout-align="start center">
             <span class="md-body-1">{{event.date | amCalendar}}</span>
             <span flex="5"></span>
             <p flex class="md-title">{{event.WrittenResponseLong || event.text}}</p>
           </div>
+          <md-button class="md-accent md-raised md-secondary" ng-show="event.button" ng-click="" aria-label="{{event.button}}">
+            {{event.button}}
+          </md-button>
         </md-list-item>
       </md-list>
 
@@ -30,6 +33,8 @@
         <div flex="20" class="sidebar-card md-whiteframe-1dp" ng-repeat="prescription in prescriptions">
           <h3>{{prescription.name}}</h3>
           <p class="md-body-1">{{prescription.frequency}}</p>
+          <p class="md-button" ng-show="prescription.quantity">{{prescription.quantity + ' remaining.'}}</p>
+          <p class="md-button" ng-hide="prescription.quantity">Not tracking quantity.</p>
         </div>
       </div>
 

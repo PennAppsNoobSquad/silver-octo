@@ -23,12 +23,17 @@ angular.module('silverOctoTestApp')
 
       } else if (result.Intent === 'TOOK_MED') {
         prescriptionItem = $scope.prescriptions.filter(function (prescription) {
-          return prescription.name === result.Name;
+          return prescription.name.toLowerCase() === result.Name.toLowerCase();
         })[0];
-        prescriptionItem.quantity = prescriptionItem.quantity - 1;
-        addToFeed({
-          text: 'You have ' + prescriptionItem.quantity + ' pills left of ' + result.Name + '.'
-        });
+
+        if (prescriptionItem && prescriptionItem.quantity) {
+          $log.debug(prescriptionItem.quantity);
+          prescriptionItem.quantity = prescriptionItem.quantity - 1;
+          addToFeed({
+            text: 'You have ' + prescriptionItem.quantity + ' pills left of ' + result.Name + '.',
+            button: 'Schedule Refill'
+          });
+        }
       }
 
     };
