@@ -13,7 +13,8 @@
     "angular-material": "~1.0.3",
     "angular-moment": "~0.10.3",
     "angular-xml": "~2.2.1",
-    "angular-webspeech-directive": "*"
+    "angular-webspeech-directive": "*",
+    "components-font-awesome": "~4.5.0"
   },
   "devDependencies": {
     "mockfirebase": "0.11.0",
