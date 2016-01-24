@@ -1,5 +1,26 @@
+@font-face {
+    font-family: 'Avenir Next LT';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Avenir Next'), url('../fonts/AvenirNextLTPro-Demi.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir Next LT';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir Next'), url('../fonts/AvenirNextLTPro-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Avenir Next LT';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Avenir Next'), url('../fonts/AvenirNextLTPro-Bold.woff') format('woff');
+}
+
 body, h1, h2, h3, h4, h5, div, p, a, .md-subhead, .md-button, #query, .md-headline {
-  font-family: "Avenir Next";
+  font-family: "Avenir Next LT";
   color: #4E516A;
 }
 
