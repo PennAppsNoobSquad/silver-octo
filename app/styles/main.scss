@@ -21,11 +21,21 @@
 
 body, h1, h2, h3, h4, h5, div, p, a, .md-subhead, .md-button, #query, .md-headline {
   font-family: "Avenir Next LT";
-  color: #4E516A;
+  color: #3D3D41;
 }
 
 body {
+  min-width: 800px;
   background: #DCDFE4;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#view {
+  border-bottom: 1px solid #AAAAAA;
 }
 
 // Soundhound Overrides
@@ -41,8 +51,7 @@ body {
 }
 
 .md-toolbar-theme {
-  // background: #1A1E29;
-  // border-bottom: 1px solid #979797;
+  background: #1A1E29;
 }
 
 .ui.basic.button, .ui.basic.buttons .button {
@@ -64,6 +73,10 @@ body {
   margin-top: 20px;
   margin-right: 20px;
   border-radius: 0px;
+}
+
+md-toolbar.md-toolbar-theme.md-hue-3:not(.md-menu-toolbar).md-accent {
+  background: #1A1E29;
 }
 
 #action-button {
@@ -94,7 +107,7 @@ body {
 
 // Angular material overrides
 
-.layout-padding.ng-scope {
+.layout-padding.ng-scope, .md-padding {
   padding: 40px;
 }
 
@@ -115,5 +128,30 @@ body {
 }
 
 .sidebar-card {
+  height: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 20px;
   margin-bottom: 16px;
+}
+
+.md-headline-1 {
+  margin-bottom: 20px;
+}
+
+.page-header {
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.empty-state {
+  .empty-state-image {
+    width: 400px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  width: 100%;
+  text-align: center;
 }

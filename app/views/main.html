@@ -1,11 +1,14 @@
 <md-tabs md-dynamic-height md-border-bottom>
   <md-tab label="Activity Feed">
     <md-content class="md-padding">
-      <h1 class="md-display-2">Activity Feed</h1>
+      <h1 class="page-header">Activity Feed</h1>
 
-      <h2 class="md-display-1" ng-show="feed.length === 0">
-        Nothing to display! Try asking a question.
-      </h2>
+      <div class="empty-state">
+        <img class="empty-state-image" src="/images/empty_state.png"></img>
+        <h3 ng-show="feed.length === 0">
+          Nothing to display! Try asking a question.
+        </h3>
+      </div>
 
       <md-list>
         <md-list-item ng-repeat="event in feed">
@@ -22,10 +25,10 @@
   <md-tab label="Medications">
     <md-content class="md-padding">
 
-      <h1 class="md-headline-1">Medications</h1>
+      <h1 class="md-headline-1 page-header">Medications</h1>
       <div layout="row" layout-align="space-between start" layout-wrap>
-        <div flex="20" class="sidebar-card md-whiteframe-1dp" layout-padding ng-repeat="prescription in prescriptions">
-          <h4 class="md-title">{{prescription.name}}</h4>
+        <div flex="20" class="sidebar-card md-whiteframe-1dp" ng-repeat="prescription in prescriptions">
+          <h3>{{prescription.name}}</h3>
           <p class="md-body-1">{{prescription.frequency}}</p>
         </div>
       </div>
