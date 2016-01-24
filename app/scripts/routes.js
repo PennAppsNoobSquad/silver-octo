@@ -78,6 +78,10 @@ angular.module('silverOctoTestApp')
         templateUrl: 'views/medication_log.html',
         controller: 'MedicationLogCtrl'
       })
+      .when('/add', {
+        templateUrl: 'views/add_medication.html',
+        controller: 'AddMedicationCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 
