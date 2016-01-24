@@ -1,7 +1,7 @@
 'use strict';
 /**
  * @ngdoc function
- * @name muck2App.controller:AccountCtrl
+ * @name silverOctoTestApp.controller:AccountCtrl
  * @description
  * # AccountCtrl
  * Provides rudimentary account management functions.
@@ -23,7 +23,7 @@ angular.module('silverOctoTestApp')
 
     var profile = $firebaseObject(Ref.child('users/'+user.uid));
     profile.$bindTo($scope, 'profile').then(validateProfileData);
-    
+
     $scope.changePassword = function(oldPass, newPass, confirm) {
       $scope.err = null;
       if( !oldPass || !newPass ) {
@@ -66,5 +66,4 @@ angular.module('silverOctoTestApp')
         $scope.messages.splice($scope.messages.indexOf(obj), 1);
       }, 10000);
     }
-
   });

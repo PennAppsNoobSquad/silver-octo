@@ -12,7 +12,8 @@
     "angular-sanitize": "^1.3.0",
     "angular-material": "~1.0.3",
     "angular-moment": "~0.10.3",
-    "angular-xml": "~2.2.1"
+    "angular-xml": "~2.2.1",
+    "angular-webspeech-directive": "*"
   },
   "devDependencies": {
     "mockfirebase": "0.11.0",

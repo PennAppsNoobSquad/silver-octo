@@ -18,10 +18,11 @@ angular.module('silverOctoTestApp', [
     'firebase.ref',
     'firebase.auth',
     'ngMaterial',
+    'jonniespratley.angularWebSpeechDirective',
     'xml'
   ])
   .config(function (x2jsProvider, $mdThemingProvider) {
-    
+
     x2jsProvider.config = {
       arrayAccessFormPaths: ['Pills.pill']
     };
@@ -33,5 +34,5 @@ angular.module('silverOctoTestApp', [
     $mdThemingProvider.theme('toolbar')
       .primaryPalette('grey')
       .accentPalette('light-blue');
-      
+
   });
