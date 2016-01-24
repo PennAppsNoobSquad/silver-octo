@@ -40,16 +40,18 @@ angular.module('silverOctoTestApp')
 
     $scope.prescriptions = [{
       name: "Heart medicine",
+      quantity: 20,
       frequency: "Twice a day"
     }, {
       name: "Advil",
-      quantity: 20,
       frequency: "After dinner"
     }, {
       name: "High cholesterol pills",
+      quantity: 15,
       frequency: "As needed"
     }, {
       name: "Levothyroxine",
+      quantity: 22,
       frequency: "Every morning"
     }];
 
