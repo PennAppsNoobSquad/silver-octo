@@ -12,7 +12,7 @@
           <div flex layout="row" layout-align="start center">
             <span class="md-body-1">{{event.date | amCalendar}}</span>
             <span flex="5"></span>
-            <p flex class="md-title">{{event.WrittenResponseLong}}</p>
+            <p flex class="md-title">{{event.WrittenResponseLong || event.text}}</p>
           </div>
         </md-list-item>
       </md-list>

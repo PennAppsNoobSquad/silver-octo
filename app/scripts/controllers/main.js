@@ -11,8 +11,26 @@ angular.module('silverOctoTestApp')
   .controller('MainCtrl', function ($scope, $log, houndify) {
 
     var addToFeed = function addToFeed(event) {
+      event.date = new Date();
       $scope.feed.push(event);
       $scope.$apply();
+    };
+
+    var handleEventIntent = function handleEventIntent(result) {
+      var prescriptionItem; // should be firebase object eventually
+
+      if (result.Intent === 'ASK_MED_LAST_TAKEN') {
+
+      } else if (result.Intent === 'TOOK_MED') {
+        prescriptionItem = $scope.prescriptions.filter(function (prescription) {
+          return prescription.name === result.Name;
+        })[0];
+        prescriptionItem.quantity = prescriptionItem.quantity - 1;
+        addToFeed({
+          text: 'You have ' + prescriptionItem.quantity + ' pills left of ' + result.Name + '.'
+        });
+      }
+
     };
 
     $scope.prescriptions = [{
@@ -20,6 +38,7 @@ angular.module('silverOctoTestApp')
       frequency: "Twice a day"
     }, {
       name: "Advil",
+      quantity: 20,
       frequency: "After dinner"
     }, {
       name: "High cholesterol pills",
@@ -32,10 +51,10 @@ angular.module('silverOctoTestApp')
     $scope.feed = [];
 
     $scope.$on('houndResponse', function (event, data) {
-      $log.debug(data);
-      data.AllResults[0].date = new Date();
+      var newEvent = data.AllResults[0];
 
-      addToFeed(data.AllResults[0]);
+      handleEventIntent(newEvent.Result);
+      addToFeed(newEvent);
     });
 
 

@@ -27,7 +27,7 @@ angular.module('silverOctoTestApp')
     medList.forEach(function (medName) {
       var responseText = "Okay, making a note that you took " + medName + ".";
       var matchObject = {
-        "Expression": "\"i\" . \"just\" . \"took\" . [\"my\"] . \""+medName+"\"",   
+        "Expression": "\"i\" . [\"just\"] . (\"took\" | \"swallowed\") . [\"my\" | \"the\"] . \""+medName+"\"",   
         "Result":     { "Intent" : "TOOK_MED", "Name": medName },
       };
 
