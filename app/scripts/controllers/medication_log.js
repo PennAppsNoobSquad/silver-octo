@@ -1,15 +1,13 @@
 'use strict';
-
 /**
  * @ngdoc function
  * @name silverOctoTestApp.controller:MedicationLogCtrl
  * @description
  * # MedicationLogCtrl
- * Controller of the silverOctoTestApp
+ * Displays the medication log
  */
 angular.module('silverOctoTestApp')
   .controller('MedicationLogCtrl', function ($scope) {
-
     $scope.activityLog = [{
       name: "Took advil",
       action: "completed",
@@ -19,5 +17,4 @@ angular.module('silverOctoTestApp')
       action: "missed",
       time: "1 day ago"
     }];
-
   });

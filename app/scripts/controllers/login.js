@@ -60,8 +60,6 @@ angular.module('silverOctoTestApp')
       return f + str.substr(1);
     }
 
-  
-
     function redirect() {
       $location.path('/account');
     }
@@ -69,6 +67,4 @@ angular.module('silverOctoTestApp')
     function showError(err) {
       $scope.err = err;
     }
-
-
   });
