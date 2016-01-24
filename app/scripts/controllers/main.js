@@ -53,7 +53,10 @@ angular.module('silverOctoTestApp')
     $scope.$on('houndResponse', function (event, data) {
       var newEvent = data.AllResults[0];
 
-      handleEventIntent(newEvent.Result);
+      if (newEvent.Result) {
+        handleEventIntent(newEvent.Result);
+      }
+
       addToFeed(newEvent);
     });
 

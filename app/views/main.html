@@ -3,9 +3,9 @@
     <md-content class="md-padding">
       <h1 class="page-header">Activity Feed</h1>
 
-      <div class="empty-state">
+      <div class="empty-state" ng-show="feed.length === 0">
         <img class="empty-state-image" src="/images/empty_state.png"></img>
-        <h3 ng-show="feed.length === 0">
+        <h3>
           Nothing to display! Try asking a question.
         </h3>
       </div>
