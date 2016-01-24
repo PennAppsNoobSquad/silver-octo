@@ -152,6 +152,12 @@ md-tab-item {
 }
 
 .sidebar-card {
+  .md-button {
+    background: #efefef;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0px
+  }
   height: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
