@@ -8,7 +8,7 @@
  * Factory in the silverOctoTestApp.
  */
 angular.module('silverOctoTestApp')
-  .factory('pillDescription', function () {
+  .factory('pillDescription', function ($log) {
     // Service logic
     var colorList = {
       "BLACK":      "C48323",
@@ -49,6 +49,9 @@ angular.module('silverOctoTestApp')
 
     // Public API here
     return {
+      getColors: function getColors() {
+        return Object.keys(colorList);
+      },
       getColorCode: function getColorCode(color) {
         color = color.toUpperCase();
         if (colorList[color]) {
@@ -58,6 +61,15 @@ angular.module('silverOctoTestApp')
           return;
         }
       },
+      getColorFromCode: function getColorFromCode(colorCode) {
+        var color = Object.keys(colorList).filter(function (key) {
+          return colorList[key] === colorCode;
+        })[0];
+        return color;
+      },
+      getShapes: function getShapes() {
+        return Object.keys(shapeList);
+      },
       getShapeCode: function getShapeCode(shape) {
         shape = shape.toUpperCase();
         if (shapeList[shape]) {
@@ -66,6 +78,13 @@ angular.module('silverOctoTestApp')
           $log.warn("No shape code found for", shape);
           return;
         }
+      },
+      getShapeFromCode: function getShapeFromCode(shapeCode) {
+        var shape = Object.keys(shapeList).filter(function (key) {
+          return shapeList[key] === shapeCode;
+        })[0];
+        return shape;
       }
     };
   });
+

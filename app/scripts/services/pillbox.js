@@ -8,15 +8,14 @@
  * Factory in the silverOctoTestApp.
  */
 angular.module('silverOctoTestApp')
-  .factory('pillbox', function () {
+  .factory('pillbox', function ($log, $http, x2js) {
     // Service logic
     var key = '1H9FOOCCOA';
     var endpoint = 'http://pillbox.nlm.nih.gov/PHP/pillboxAPIService.php';
 
-    var $ = $window.$;
-
     var transformResponse = function transformResponse(xml) {
       var data = x2js.xml_str2json(xml);
+      // delete data.Pills.disclaimer;
       $log.debug("Transform response", data);
       return data;
     };

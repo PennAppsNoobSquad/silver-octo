@@ -1,0 +1,61 @@
+<md-toolbar class="md-hue-1">
+  <div class="md-toolbar-tools">Add Medication</div>
+</md-toolbar>
+
+
+<section flex layout="column" layout-padding>
+
+    <div layout="column">
+      <h4 class="md-headline">What is the name of your medicine?</h4>
+      <md-input-container flex class="hide-error-spacer">
+        <label>Medication Name</label>
+        <input type="text" ng-model="medication.name">
+      </md-input-container>
+    </div>
+
+    <div layout="column">
+      <h4 class="md-headline">Is there something else you like to call it?</h4>
+      <md-input-container flex class="hide-error-spacer">
+        <label>Nickname</label>
+        <input type="text" ng-model="medication.nickname">
+      </md-input-container>
+    </div>
+
+    <div flex layout="column">
+      <h4 class="md-headline">What does your medicine look like?</h4>
+
+      <div layout="row">
+        <md-input-container flex>
+          <label>Color</label>
+          <md-select flex ng-model="medication.color">
+            <md-option ng-repeat="color in colors" value="{{color}}">
+              {{color}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Shape</label>
+          <md-select flex ng-model="medication.shape">
+            <md-option ng-repeat="shape in shapes" value="{{shape}}">
+              {{shape}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+    </div>
+
+    <div layout="column">
+      <h4 class="md-headline">When do you take this medicine?</h4>
+
+      <div layout="row" layout-align="space-between start">
+        <div ng-repeat="day in daysOfWeek">
+          <md-checkbox ng-model="medication.frequency[day]" aria-label="{{day}}">
+            {{day}}
+          </md-checkbox>
+        </div>
+      </div>
+
+    </div>
+
+
+</section>

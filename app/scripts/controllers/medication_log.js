@@ -7,7 +7,7 @@
  * Displays the medication log
  */
 angular.module('silverOctoTestApp')
-  .controller('MedicationLogCtrl', function ($scope) {
+  .controller('MedicationLogCtrl', function ($scope, $log, pillbox) {
     $scope.activityLog = [{
       name: "Took advil",
       action: "completed",
