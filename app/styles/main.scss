@@ -50,8 +50,12 @@ form {
   border-radius: 0px;
 }
 
+md-toolbar.md-toolbar-theme.md-hue-1:not(.md-menu-toolbar).md-accent {
+  background-color: #4CC4F5;
+}
+
 .md-toolbar-theme {
-  // background: #1A1E29;
+  background: #249CCD;
 }
 
 .ui.basic.button, .ui.basic.buttons .button {
