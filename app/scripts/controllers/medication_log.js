@@ -8,7 +8,7 @@
  * Controller of the silverOctoTestApp
  */
 angular.module('silverOctoTestApp')
-  .controller('MedicationLogCtrl', function ($scope) {
+  .controller('MedicationLogCtrl', function ($scope, $log, pillbox) {
 
     $scope.activityLog = [{
       name: "Took advil",
