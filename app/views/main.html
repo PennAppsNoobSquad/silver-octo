@@ -1,22 +1,35 @@
-<section flex layout="row" layout-padding>
+<md-tabs md-dynamic-height md-border-bottom>
+  <md-tab label="Activity Feed">
+    <md-content class="md-padding">
+      <h1 class="md-display-2">Activity Feed</h1>
 
-  <div flex="15" layout="column" layout-padding>
+      <h2 class="md-display-1" ng-show="feed.length === 0">
+        Nothing to display! Try asking a question.
+      </h2>
 
-    <div class="sidebar-card md-whiteframe-1dp" layout-padding ng-repeat="prescription in prescriptions">
-      <h4 class="md-title">{{prescription.name}}</h4>
-      <p class="md-subhead">{{prescription.frequency}}</p>
-    </div>
+      <md-list>
+        <md-list-item ng-repeat="event in feed">
+          <div flex layout="row" layout-align="start center">
+            <span class="md-body-1">{{event.date | amCalendar}}</span>
+            <span flex="5"></span>
+            <p flex class="md-title">{{event.WrittenResponseLong}}</p>
+          </div>
+        </md-list-item>
+      </md-list>
 
-  </div>
+    </md-content>
+  </md-tab>
+  <md-tab label="Medications">
+    <md-content class="md-padding">
 
-  <span flex="5"></span>
+      <h1 class="md-headline-1">Medications</h1>
+      <div layout="row" layout-align="space-between start" layout-wrap>
+        <div flex="20" class="sidebar-card md-whiteframe-1dp" layout-padding ng-repeat="prescription in prescriptions">
+          <h4 class="md-title">{{prescription.name}}</h4>
+          <p class="md-body-1">{{prescription.frequency}}</p>
+        </div>
+      </div>
 
-  <div flex layout-fill layout-padding>
-
-    <div flex layout-fill>
-    <h1>Feed</h1>
-    </div>
-
-  </div>
-
-</section>
+    </md-content>
+  </md-tab>
+</md-tabs>

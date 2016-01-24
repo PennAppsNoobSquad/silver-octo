@@ -8,23 +8,20 @@
  * Factory in the silverOctoTestApp.
  */
 angular.module('silverOctoTestApp')
-  .factory('houndify', function ($log, clientMatches) {
+  .factory('houndify', function ($log, clientMatches, $rootScope) {
 
     //CONFIG
     var clientID = "9cCASvpjjiR3qHc7BjObPQ==";
     var baseURL = "https://localhost:3446";
 
-    //HTML ELEMENTS FOR DISPLAYING RESPONSE AND INFO JSON's
-    var data = {};
-
-    var jsonElet = document.getElementById("responseJSON");
-    var infoElet = document.getElementById("infoJSON");
+    $log.debug(clientMatches.get());
 
     //REQUEST INFO JSON
     var requestInfo = {
        PartialTranscriptsDesired: true,
        ClientID: clientID,
-       clientMatches: clientMatches.get()
+       ClientMatches: clientMatches.get(),
+       ClientMatchesOnly: true
     };
 
     //INITIALIZE COMMON CONVERSATION OBJECT FOR STORING CONVERSATION STATE
@@ -40,8 +37,6 @@ angular.module('silverOctoTestApp')
         clientKey: "bkzCrOwxtF7VqG8UnT6hUH3hSmQuar8PEpASRSCrDcDg5jhLi331XN4A6JlSv7PGiImf15B0V69eBgkXwqM8bA=="
       },
 
-      // authenticationURI: baseURL + "/voiceSearchAuth",
-
       conversation: myConversation,
 
       enableVAD: true,
@@ -54,26 +49,22 @@ angular.module('silverOctoTestApp')
       onResponse: function(response, info) {
         if (response.AllResults && response.AllResults[0] !== undefined) {
           $log.debug("voiceSearch response:", response, info);
-          data.response = response;
-          data.info = info;
-          // Maybe fire event here.
-          // jsonElet.value = JSON.stringify(response, undefined, 2);
-          // infoElet.value = JSON.stringify(info, undefined, 2);
+
+          $rootScope.$broadcast('houndResponse', response);
+          $rootScope.$broadcast('houndResponseInfo', info);
         }
       },
 
       onAbort: function(info) {},
 
       onError: function(err, info) {
-        data.info = info;
         $log.warn("voiceSearch error:", err, info);
-        // infoElet.value = JSON.stringify(info, undefined, 2);
         document.getElementById("voiceIcon").className = "unmute big icon";
       },
 
       onRecordingStarted: function() {
         $log.debug("Recording started");
-        document.getElementById("voiceIcon").className = "record_voice_over md-warn big red icon";
+        document.getElementById("voiceIcon").className = "selected radio icon big";
       },
 
       onRecordingStopped: function(recording) {
@@ -105,27 +96,22 @@ angular.module('silverOctoTestApp')
     //INITIALIZE TEXT SEARCH OBJECT
     var textSearch = new Hound.TextSearch({
 
-      // client: {
-      //   clientId: "ZT1j1QT7Q7sC93SauHS2vA==",
-      //   clientKey: "bkzCrOwxtF7VqG8UnT6hUH3hSmQuar8PEpASRSCrDcDg5jhLi331XN4A6JlSv7PGiImf15B0V69eBgkXwqM8bA=="
-      // },
+      proxy: {
+        route: baseURL + '/textSearchProxy'
+      },
 
       conversation: myConversation,
 
       onResponse: function(response, info) {
         if (response.AllResults && response.AllResults[0] !== undefined) {
-          data.response = response;
-          data.info = info;
           $log.debug("textSearch response", response, info);
-          // jsonElet.value = JSON.stringify(response, undefined, 2);
-          // infoElet.value = JSON.stringify(info, undefined, 2);
+          $rootScope.$broadcast('houndResponse', response);
+          $rootScope.$broadcast('houndResponseInfo', info);
         }
       },
 
       onError: function(err, info) {
-        data.info = info;
         $log.warn("textSearch error", err, info);
-        // infoElet.value = JSON.stringify(info, undefined, 2);
       }
 
     });

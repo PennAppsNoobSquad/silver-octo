@@ -18,7 +18,7 @@ angular.module('silverOctoTestApp', [
     'firebase.ref',
     'firebase.auth',
     'ngMaterial',
-    // 'jonniespratley.angularWebSpeechDirective',
+    'angularMoment',
     'xml'
   ])
   .config(function (x2jsProvider, $mdThemingProvider) {

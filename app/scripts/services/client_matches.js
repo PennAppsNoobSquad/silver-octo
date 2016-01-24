@@ -10,22 +10,41 @@
 angular.module('silverOctoTestApp')
   .factory('clientMatches', function () {
     // Service logic
+    var matches = [];
 
-    var matches = [{
-      "Expression" : "\"what\" . \"medicine\" . \"do\" . \"I\" . \"take\" . \"next\"",   
-      "Result" : { "Intent" : "TURN_LIGHT_ON" },
-      "SpokenResponse" : "Ok, I'm turning the lights on.",
-      "SpokenResponseLong" : "Ok, I'm turning the lights on.",
-      "WrittenResponse" : "Ok, I'm turning the lights on.",
-      "WrittenResponseLong" : "Ok, I'm turning the lights on."
-    }, {
-      "Expression" : "\"when\" . \"do\" . \"I\" . \"take\" . \"my\" . \"ibuprofen\"",   
-      "Result" : { "Intent" : "TURN_LIGHT_ON" },
-      "SpokenResponse" : "Ok, I'm turning the lights on.",
-      "SpokenResponseLong" : "Ok, I'm turning the lights on.",
-      "WrittenResponse" : "Ok, I'm turning the lights on.",
-      "WrittenResponseLong" : "Ok, I'm turning the lights on."
-    }];
+    var buildRestOfMatchObject = function buildRestOfMatchObject(matchObject, responseText) {
+
+      matchObject['SpokenResponse'] = responseText;
+      matchObject['SpokenResponseLong'] = responseText;
+      matchObject['WrittenResponse'] = responseText;
+      matchObject['WrittenResponseLong'] = responseText;
+
+      return matchObject;
+    };
+
+    var medList = ['ibuprofen', 'advil', 'heart medicine', 'cholesterol pills', 'insulin'];
+
+    medList.forEach(function (medName) {
+      var responseText = "Okay, making a note that you took " + medName + ".";
+      var matchObject = {
+        "Expression": "\"i\" . \"just\" . \"took\" . [\"my\"] . \""+medName+"\"",   
+        "Result":     { "Intent" : "TOOK_MED", "Name": medName },
+      };
+
+      matchObject = buildRestOfMatchObject(matchObject, responseText);
+      matches.push(matchObject);
+    });
+
+    medList.forEach(function (medName) {
+      var responseText = "Checking when you last took " + medName + ".";
+      var matchObject = {
+        "Expression": "[\"when\"] . \"did\" . [\"i\"] . [\"last\"] . \"take\" . [\"my\"] . \""+medName+"\"",   
+        "Result":     { "Intent" : "ASK_MED_LAST_TAKEN", "Name": medName },
+      };
+
+      matchObject = buildRestOfMatchObject(matchObject, responseText);
+      matches.push(matchObject);
+    }); 
 
     // Public API here
     return {

@@ -40,9 +40,9 @@ body {
   border-radius: 0px;
 }
 
-.layout-row {
-  background: #1A1E29;
-  border-bottom: 1px solid #979797;
+.md-toolbar-theme {
+  // background: #1A1E29;
+  // border-bottom: 1px solid #979797;
 }
 
 .ui.basic.button, .ui.basic.buttons .button {
@@ -71,6 +71,7 @@ body {
     color: white;
   }
   background: #FF6330 !important;
+  height: 76px;
 }
 
 #query {
