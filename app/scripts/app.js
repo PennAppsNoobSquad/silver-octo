@@ -28,7 +28,7 @@ angular.module('silverOctoTestApp', [
 
     $mdThemingProvider.theme('default')
       .primaryPalette('light-blue')
-      .accentPalette('yellow');
+      .accentPalette('indigo');
 
     $mdThemingProvider.theme('toolbar')
       .primaryPalette('grey')
