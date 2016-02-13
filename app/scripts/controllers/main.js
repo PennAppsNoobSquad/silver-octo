@@ -79,8 +79,5 @@ angular.module('silverOctoTestApp')
       if (newEvent.Result) {
         handleEventIntent(newEvent.Result);
       }
-w    });
-
-
-
+    });
   });

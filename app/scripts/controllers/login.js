@@ -65,6 +65,6 @@ angular.module('silverOctoTestApp')
     }
 
     function showError(err) {
-      $scope.err = err;
+      $scope.err = err instanceof String ? err : null;
     }
   });

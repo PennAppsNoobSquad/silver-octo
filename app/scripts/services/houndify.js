@@ -89,7 +89,7 @@ angular.module('silverOctoTestApp')
         return true;
         document.getElementById("voiceIcon").className = "loading circle notched icon big";
         document.getElementById("textSearchButton").disabled = true;
-        document.getElementById("query").readOnly = true;  
+        document.getElementById("query").readOnly = true;
       }
     };
 
@@ -123,6 +123,7 @@ angular.module('silverOctoTestApp')
         return startStopVoiceSearch();
       },
       search: function search(query) {
+        console.log(query);
         return textSearch.search(query, requestInfo);
       }
     };

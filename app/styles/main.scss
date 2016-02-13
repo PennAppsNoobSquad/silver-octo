@@ -50,6 +50,17 @@ form {
   border-radius: 0px;
 }
 
+a.md-button.md-toolbar-theme.md-hue-3.md-accent.md-raised,
+a.md-button.md-toolbar-theme.md-hue-3.md-accent.md-fab,
+.md-button.md-toolbar-theme.md-hue-3.md-accent.md-raised,
+.md-button.md-toolbar-theme.md-hue-3.md-accent.md-fab {
+  border-radius: 3px;
+  background: transparent;
+  box-shadow: none;
+  padding: 5px 15px 5px 15px;
+  border-bottom: none;
+}
+
 md-toolbar.md-toolbar-theme.md-hue-1:not(.md-menu-toolbar).md-accent {
   background-color: #4CC4F5;
 }
@@ -67,16 +78,15 @@ md-toolbar.md-toolbar-theme.md-hue-1:not(.md-menu-toolbar).md-accent {
 
 .md-subhead {
   text-transform: none;
+  color: #FFFFFF;
   font-weight: 600;
-  color: white;
   font-size: 18px;
 }
 
 .md-button.md-toolbar-theme.md-ink-ripple {
-  height: 30px;
-  margin-top: 20px;
+  height: 45px;
+  margin-top: 15px;
   margin-right: 20px;
-  border-radius: 0px;
 }
 
 md-tabs.md-default-theme .md-tab.md-active,
@@ -156,7 +166,8 @@ md-tab-item {
     background: #efefef;
     padding-left: 10px;
     padding-right: 10px;
-    margin: 0px
+    margin: 0px;
+    border-bottom: 1px solid #AAAAAA;
   }
   height: 150px;
   overflow: hidden;
@@ -183,6 +194,30 @@ md-tab-item {
     margin-right: auto;
     margin-left: auto;
   }
-  // width: 100%;
   text-align: center;
+}
+
+.md-button.md-raised:not([disabled]),
+a.md-button.md-default-theme.md-raised,
+a.md-button.md-raised,
+.md-button.md-default-theme.md-raised,
+.md-button.md-raised {
+  padding-left: 15px;
+  padding-right: 15px;
+
+  &, &:hover {
+    background: #EFEFEF;
+    box-shadow: none;
+    color: black;
+    border-bottom: 1px solid #AAAAAA;
+  }
+}
+
+button {
+  &, &.md-button {
+    margin: 0px;
+    margin-right: 10px;
+    color: #3D3D41;
+    border-bottom: 1px solid #AAAAAA;
+  }
 }

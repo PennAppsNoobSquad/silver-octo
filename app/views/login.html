@@ -2,6 +2,7 @@
   <h1 class="page-header">Login</h1>
 
   <form role="form" layout="column" flex flex-gt-sm="50">
+    <p ng-show="err" class="error">{{err}}</p>
     <md-input-container>
       <label for="loginEmail">Email</label>
       <input id="loginEmail" required name="email" type="email" ng-model="email" />
@@ -11,7 +12,7 @@
       <input id="loginPass" required name="pass" type="password" ng-model="pass" />
     </md-input-container>
     <md-input-container class="form-container" ng-cloak ng-show="createMode">
-      <label for="loginConfirm">confirm pass</label>
+      <label for="loginConfirm">Confirm password</label>
       <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" />
     </md-input-container>
 
@@ -23,6 +24,4 @@
       <md-button class="md-raised" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</md-button>
     </p>
   </form>
-
-  <p ng-show="err" class="error">{{err}}</p>
 </section>

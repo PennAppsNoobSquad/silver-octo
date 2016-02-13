@@ -8,7 +8,12 @@ Then run `npm install`
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+Run `grunt` for building.
+
+Run `grunt serve` to start the frontend.
+Run `node server.js` to start the backend.
+
+You will also need to trust `server.crt` as a root CA.
 
 ## Testing
 
